@@ -1,0 +1,47 @@
+$xl-large: 1250px;
+$x-large: 1200px;
+$xs-large: 1024px;
+$large: 992px;
+$medium: 767px;
+$pre-small: 650px;
+$small: 600px;
+$x-small: 500px;
+$xx-small: 450px;
+$xxx-small: 400px;
+
+@mixin respond-to($media) {
+
+  @if $media == xl-large {
+    @media (max-width: $xl-large) { @content; }
+  }
+  @else if $media == x-large {
+    @media (max-width: $x-large) { @content; }
+  }
+  @else if $media == xs-large {
+    @media (max-width: $xs-large) { @content; }
+  }
+  @else if $media == large {
+    @media (max-width: $large) { @content; }
+  }
+  @else if $media == medium {
+    @media (max-width: $medium) { @content; }
+  }
+  @else if $media == pre-small {
+    @media (max-width: $pre-small) { @content; }
+  }
+  @else if $media == small {
+    @media (max-width: $small) { @content; }
+  }
+  @else if $media == x-small {
+    @media (max-width: $x-small) { @content; }
+  }
+  @else if $media == xx-small {
+    @media (max-width: $xx-small) { @content; }
+  }
+  @else if $media == xxx-small {
+    @media (max-width: $xxx-small) { @content; }
+  }
+  @else if $media == "de" {
+    html:lang(de-DE) { @content }
+  }
+}

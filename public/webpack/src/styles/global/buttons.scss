@@ -1,0 +1,79 @@
+.button {
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 15px 50px;
+  display: inline-flex;
+  text-transform: uppercase;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    position: relative;
+    z-index: 1;
+    font-size: 13px;
+    line-height: 100%;
+    text-align: center;
+  }
+}
+
+@mixin button-fill-effect($direction: 'left-to-right') {
+  &::before, &::after {
+    position: absolute;
+    top: 0;
+    display: block;
+    border-radius: 4px;
+    height: 100%;
+    width: 0;
+    background-color: $header_bg;
+    content: "";
+  }
+
+  @if $direction == 'left-to-right' {
+    &::before { left: 0; }
+    &::after {
+      right: 0;
+      transition: width $time;
+    }
+  } @else {
+    &::before { right: 0; }
+    &::after {
+      left: 0;
+      transition: width $time;
+    }
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+      transition: width $time;
+    }
+    &::after {
+      background-color: transparent;
+      width: 100%;
+    }
+  }
+}
+
+.primary-button {
+  @extend .button;
+  background: $blue;
+  border: 1px solid white;
+  color: $white;
+  @include button-fill-effect('left-to-right');
+}
+
+.secondary-button {
+  @extend .button;
+  background: $white;
+  border: 1px solid #6F6D7B;
+  color: $gray;
+  transition: color $time;
+  @include button-fill-effect('right-to-left');
+
+  &:hover {
+    color: $white;
+    border-color: $header_bg;
+  }
+}

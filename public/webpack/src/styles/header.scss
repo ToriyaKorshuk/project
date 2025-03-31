@@ -1,0 +1,93 @@
+header{
+  position: sticky;
+  z-index: 99;
+  top: 0;
+  .header {
+    background: $header_bg;
+    justify-content: space-between;
+    color: $white;
+    transition: background-color $time ease;
+
+
+    .wrapper {
+      justify-content: space-between;
+      gap: 50px;
+      padding: 29px 15px;
+      align-items: center;
+
+    }
+
+    &__nav {
+      &-list {
+        gap: 40px;
+        text-transform: uppercase;
+        font-size: 13px;
+      }
+    }
+
+    &__logo {
+      img {
+        max-width: 247px;
+
+      }
+    }
+
+    .hamburger-menu {
+      display: none;
+    }
+
+    @media screen and (max-width: $xs-large) {
+      &__logo {
+        img {
+          max-width: 150px;
+
+        }
+      }
+      .header__nav {
+        display: none;
+      }
+      .hamburger-menu {
+        display: block;
+        width: 40px;
+        height: 40px;
+        transition: background-image 0.3s ease;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='9' y='13' width='22' height='2' fill='white'/%3E%3Crect x='9' y='19' width='22' height='2' fill='white'/%3E%3Crect x='9' y='25' width='22' height='2' fill='white'/%3E%3C/svg%3E");
+
+      }
+
+      .hamburger-menu.open-hamburger {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.8 29L11 27.2L18.2 20L11 12.8L12.8 11L20 18.2L27.2 11L29 12.8L21.8 20L29 27.2L27.2 29L20 21.8L12.8 29Z' fill='white'/%3E%3C/svg%3E");
+
+      }
+      .header__nav.open-mob {
+        display: block;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background: $header_bg_mob;
+        height: 100vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        nav {
+          background: $header_bg_mob;
+        }
+
+        .header__nav-list {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          align-items: flex-start;
+          padding: 20px 15px;
+          flex-wrap: nowrap;
+          gap: 20px;
+        }
+      }
+    }
+  }
+  .header-scroll{
+    transition: background-color $time ease;
+    background: $header_bg_mob;
+  }
+}

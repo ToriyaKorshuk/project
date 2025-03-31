@@ -1,0 +1,44 @@
+.hero {
+  padding: 200px 0 150px 0;
+  background-image: url("../../../assets/images/hero_image.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+  &__top {
+    max-width: 780px;
+
+    &-title {
+      margin-bottom: 80px;
+    }
+
+    p {
+      margin-bottom: 15px;
+
+    }
+  }
+
+  &__bottom {
+    padding: 60px 0 100px 0;
+    gap: 40px;
+
+  }
+
+  @media screen and (max-width: $medium) {
+    padding: 140px 0 40px 0;
+    &__top {
+      &-title {
+        margin-bottom: 40px;
+
+      }
+    }
+    &__bottom {
+      padding: 40px 0;
+      gap: 20px;
+      flex-direction: column;
+
+      .button {
+        max-width: 100%;
+      }
+    }
+  }
+}
